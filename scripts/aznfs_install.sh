@@ -137,7 +137,7 @@ perform_aznfs_update()
     fi
 
     # Use wget to download the package, and check for success.
-    wget_output=$(wget --timeout=120 "https://github.com/Azure/AZNFS-mount/releases/download/${RELEASE_NUMBER}/${package_name}" -P /tmp 2>&1)
+    wget_output=$(wget --timeout=120 "https://github.com/palashvij-msft/AZNFS-mount/releases/download/${RELEASE_NUMBER}/${package_name}" -P /tmp 2>&1)
     if [ $? -ne 0 ]; then
         eecho "Failed to download the package using wget, exiting!"
         eecho "$wget_output"
@@ -396,7 +396,7 @@ ensure_pkg "wget"
 
 if [ "$RUN_MODE" == "auto-update" ]; then
     # Define the GitHub API URL to get the latest release.
-    API_URL="https://api.github.com/repos/Azure/AZNFS-mount/releases/latest"
+    API_URL="https://api.github.com/repos/palashvij-msft/AZNFS-mount/releases/latest"
     RELEASE_INFO=$(curl -sS --max-time 60 "$API_URL" 2>&1)
     if [ $? -ne 0 ]; then
         eecho "Failed to retrieve latest release information, exiting!"
